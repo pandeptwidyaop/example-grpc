@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+package calculator;
+
+option go_package = "learn-grpc/calculator/proto";
+
+service CalculatorService {
+    rpc Sum(SumRequest) returns (SumResponse) {}
+    rpc Prime(PrimeRequest) returns (stream PrimeResponse) {}
+    rpc Average(stream AverageRequest) returns (AverageResponse) {}
+    rpc Max(stream MaxRequest) returns (stream MaxResponse) {}
+    rpc Sqrt(SqrtRequest) returns (SqrtResponse) {}
+}
+
+message OtherBody {
+    string name = 1;
+    int32 age = 2;
+}
+
+message SumRequest {
+    int32 first_number = 1;
+    int32 second_number = 2;
+    OtherBody other_body = 3;
+}
+
+message SumResponse {
+    int32 result = 1;
+}
+
+message PrimeRequest {
+    int32 number = 1;
+}
+
+message PrimeResponse {
+    int32 prime = 1;
+}
+
+message AverageRequest {
+    float number = 1;
+}
+
+message AverageResponse {
+    float average = 1;
+}
+
+message MaxRequest {
+    int32 number = 1;
+}
+
+message MaxResponse {
+    int32 max = 1;
+}
+
+message SqrtRequest {
+    int32 number = 1;
+}
+
+message SqrtResponse {
+    int32 sqrt = 1;
+}

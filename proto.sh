@@ -1,0 +1,1 @@
+protoc -I greet/proto --go_out=. --go-grpc_out=. --go_opt=module=learn-grpc  greet/proto/greet.proto

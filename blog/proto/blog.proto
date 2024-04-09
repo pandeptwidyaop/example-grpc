@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+package blog;
+
+option go_package = "learn-grpc/blog/proto";
